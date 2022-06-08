@@ -23,7 +23,7 @@ const sendContact = function(ev){
 
 window.onload = function(){
     login.onclick = function () {
-        window.location.assign("./Modulo Login/login.html");
+        window.location.assign("./ModuloLogin/login.html");
     }
     
     homeimg.onclick = function () {
