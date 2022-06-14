@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+html{
+    font-size: 16px;
+}
+
 body {
     height: 100%;
 }
@@ -30,7 +34,7 @@ h1{
     display: flex;
     position: sticky;
     background-color: white;
-    height: 70px;
+    height: 5rem;
     justify-content: center;
     align-items: center;
     min-width: 750px;
@@ -112,6 +116,8 @@ h1{
     background-color: #041F32;
     background-image: url('./img/compvision.jpeg');
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 #banner2{
