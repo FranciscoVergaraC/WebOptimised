@@ -5,6 +5,8 @@ let homeimg = document.getElementById('image-container');
 let contactus = document.getElementById('contactus');
 const contactform = document.getElementById('contactform');
 let submitButton = document.getElementById('SubmitButton');
+let burgermenu = document.getElementById('burger-menu');
+let solutionsdropdown = document.getElementById('solutiondropdown');
 let contacts = [];
 
 const sendContact = function(ev){
@@ -49,6 +51,21 @@ window.onload = function(){
         fvc.onclick = function () {
         window.location.assign("https://www.linkedin.com/in/francisco-vergara-cruz-48425743/");
     }}
+
+    burgermenu.onclick = function () {
+        if (document.getElementById("burgeroptions").style.display == "flex")
+        {
+             document.getElementById("burgeroptions").style.display = "none"
+        } else document.getElementById("burgeroptions").style.display = "flex";
+    }
+
+    solutionsdropdown.onclick = function () {
+        console.log("se cargo")
+        if (document.getElementById("solitionsdropdown").style.display == "flex")
+        {
+             document.getElementById("solitionsdropdown").style.display = "none"
+        } else document.getElementById("solitionsdropdown").style.display = "flex";
+    }
 }
 
 
