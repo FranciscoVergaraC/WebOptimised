@@ -1,6 +1,5 @@
 let showpass = document.getElementById('PasswordButton');
 let login = document.getElementById('LoginButton');
-
 let homeimg = document.getElementById('Base-logos')
 
 homeimg.onclick = function () {
@@ -21,16 +20,34 @@ showpass.onclick = function () {
         }
 }
 
-function validador(user, password){
+const validador = async (user, password) =>{
     /*Logica validada, lo que queda ahora es consultar los datos de login contra una DB*/
-    if(user == 'francisco' && password == '123'){
+    /*if(user == 'francisco' && password == '123'){
         return true;
     } else {
         return false;
+    }*/
+    console.log('se ingresa a validador')
+    try {
+        let response = await fetch('http://localhost:4001/route', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: [user, password]
+        });
+        let data = await response.json();
+        if (response.ok){
+            console.log(data)
+            return true;
+        }
+    } catch (error){
+        // TODO: Manejor de errores
+        console.log(error);
     }
 }
 
-login.onclick = function () {
+    login.onclick = function () {
     let user = document.getElementById("userId").value;
     let password = document.getElementById("Pasword").value;
     if (user == ''){
@@ -39,12 +56,7 @@ login.onclick = function () {
     if (password == ''){
         alert('You must add an password')
     }
-    if (validador(user,password) == true){
-        alert('Login valido')
-        window.location.replace("http://www.w3schools.com");
-    } else {
-        alert('User/Pass incorrect')
-    }
+   validador(user,password);
 }
 
 
