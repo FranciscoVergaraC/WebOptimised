@@ -31,14 +31,18 @@ const validador = async (user, password) =>{
     try {
         let response = await fetch('http://localhost:4001/route', {
             method: 'POST',
+            body: JSON.stringify({user, password}),
             headers: {
-                'Content-Type': 'application/json'
-            },
-            body: [user, password]
+                'Content-Type': 'application/json; charset=UTF-8'
+            }
         });
         let data = await response.json();
         if (response.ok){
             console.log(data)
+            if(data.success == true){
+                window.location.assign("../homepage.html");
+            }
+            else{ alert("Incorrect Password") }
             return true;
         }
     } catch (error){
